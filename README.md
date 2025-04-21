@@ -78,13 +78,13 @@ db.createCollection('users');
 The first database will store our 'real' data.  The second database
 will be used by our tests.
 
-# Postman
+### Postman
 Download and install the Postman app https://www.postman.com/downloads/
 Download the Cyber-student.postamn_collection
 With the Postman App open, Select Workspace >> Create Workspace called crypto
 Select Import >> Files >> Select the Cyber-student.postman_collection file >> Import
 
-# Alternatively, use Curl
+### Alternatively, use Curl
 Download and install [curl](https://curl.se).  `curl` is also shipped
 by Microsoft as part of Windows 10 and 11.  `curl` is a command-line
 tool for interacting with web servers (and other protocols).
