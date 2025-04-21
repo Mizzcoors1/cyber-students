@@ -80,7 +80,7 @@ will be used by our tests.
 
 ### Postman
 Download and install the Postman app https://www.postman.com/downloads/
-Download the Cyber-student.postamn_collection
+Download the Cyber-student.postman_collection
 With the Postman App open, Select Workspace >> Create Workspace called crypto
 Select Import >> Files >> Select the Cyber-student.postman_collection file >> Import
 
