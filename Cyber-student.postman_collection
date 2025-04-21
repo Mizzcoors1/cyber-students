@@ -1,0 +1,199 @@
+{
+	"info": {
+		"_postman_id": "bd6ab958-af86-42a8-8db4-f7967453bde4",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25683863"
+	},
+	"item": [
+		{
+			"name": "Welcome",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/students/api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"students",
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"foo11@bar.com\",\r\n  \"password\": \"pass\",\r\n  \"displayName\": \"Foo2Bar\",\r\n  \"fullName\": \"Student foo1\",\r\n  \"address\": \"Dublin\",\r\n  \"phone\": \"0000000000\",\r\n  \"disabilities\": \"Diabetic\",\r\n  \"dob\": \"01/01/1981\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/students/api/registration",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"students",
+						"api",
+						"registration"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:4000/students/api/registration -d \"{\\\"email\\\": \\\"foo@bar.com\\\", \\\"password\\\": \\\"pass\\\", \\\"displayName\\\": \\\"Foo Bar\\\"}\""
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"foo11@bar.com\", \r\n    \"password\": \"pass\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/students/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"students",
+						"api",
+						"login"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:4000/students/api/login -d \"{\\\"email\\\": \\\"foo@bar.com\\\", \\\"password\\\": \\\"pass\\\"}\""
+			},
+			"response": []
+		},
+		{
+			"name": "Display User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-TOKEN",
+						"value": "{{X-TOKEN}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/students/api/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"students",
+						"api",
+						"user"
+					]
+				},
+				"description": "Generated from cURL: curl -H \"X-TOKEN: d4a5d8b20fe143b7b92e4fba92d409be\" http://localhost:4000/students/api/user"
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-TOKEN",
+						"value": "{{X-TOKEN}}"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4000/students/api/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"students",
+						"api",
+						"logout"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST -H \"X-TOKEN: d4a5d8b20fe143b7b92e4fba92d409be\" http://localhost:4000/students/api/logout"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "X-TOKEN",
+			"value": "03a2d2d5047a41baa26eaabb874eed5b",
+			"type": "string"
+		}
+	]
+}
