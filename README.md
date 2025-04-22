@@ -82,15 +82,15 @@ will be used by our tests.
 Download and install the Postman app https://www.postman.com/downloads/
 
 Download the Cyber-student.postman_collection 
-` - This collection contains all 5 updated requests - Welcome, Registration, Login, Display User Logout
-  - Please note that upon successful login, the token value returned "token": "6c50e75ce057414ab43b0661be392ba9" will need to be added to the collections variable "X-TOKEN" before running the Display User or Logout requests.`
+ - This collection contains all 5 updated requests - Welcome, Registration, Login, Display User Logout
+ - Please note that upon successful login, the token value returned "token": "6c50e75ce057414ab43b0661be392ba9" will need to be added to the collections variable "X-TOKEN" before running the Display User or Logout requests.
 
 With the Postman App open, Select Workspace >> Create Workspace called crypto
 
 Select Import >> Files >> Select the Cyber-student.postman_collection file >> Import
 
 ### Alternatively, use Curl
-' Please not the curl requests below have not been updated '
+`Please note the curl requests below have not been updated`
 Download and install [curl](https://curl.se).  `curl` is also shipped
 by Microsoft as part of Windows 10 and 11.  `curl` is a command-line
 tool for interacting with web servers (and other protocols).
