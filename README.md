@@ -90,10 +90,11 @@ With the Postman App open, Select Workspace >> Create Workspace called crypto
 Select Import >> Files >> Select the Cyber-student.postman_collection file >> Import
 
 ### Alternatively, use Curl
-`Please note the curl requests below have not been updated`
-Download and install [curl](https://curl.se).  `curl` is also shipped
-by Microsoft as part of Windows 10 and 11.  `curl` is a command-line
-tool for interacting with web servers (and other protocols).
+`Please note the curl requests below have ####not been updated`
+
+Download and install [curl](https://curl.se).  
+`curl` is also shipped by Microsoft as part of Windows 10 and 11.  
+`curl` is a command-line tool for interacting with web servers (and other protocols).
 
 Verify that `curl` is installed correctly:
 
