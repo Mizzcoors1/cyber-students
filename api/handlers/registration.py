@@ -128,13 +128,16 @@ class RegistrationHandler(BaseHandler, ABC):
             self.send_error(409, message='A user with this email address already exists!')
             return
 
-        # function to hash user password
+        # function created to hash the user's password
         def hash_password(password):
+            
             # Using the bcrypt module, create a salt for the password hash
             salt = bcrypt.gensalt()
-            # hash the password using bcrypt with the salt
+            
+            # Using bcrypt with the salt hash the password 
             hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
-            # return the hashed password and salt as bytes
+            
+            # return the salt & hashed password
             return hashed_password, salt
 
         # hash the password 
