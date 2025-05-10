@@ -11,23 +11,23 @@ import json
 
 # encrypt_value encrypts sensitive strings using AES CTR with random key + nonce
 def encrypt_value(value):
-    # generate a 32 byte key 
+    # generate a 32-byte key 
     key = secrets.token_bytes(32)
     key_bytes = bytes(key)
     
-    # generates 16 bytes nonce using secrets module
+    # 16 bytes nonce created using the secrets module
     nonce_bytes = secrets.token_bytes(16)
     
-    # initialises new cipher object using aes in ctr mode with the nonce_bytes
+    # Applies a new cipher object using AES in CTR mode with the nonce_bytes
     aes_ctr_cipher = Cipher(algorithms.AES(key_bytes), mode=modes.CTR(nonce_bytes))
     
-    # initialises new encryptor object from the cipher object
+    # initialises a new encryptor object from the cipher object
     aes_ctr_encryptor = aes_ctr_cipher.encryptor()
     
-    # encodes using utf-8 encoding
+    # utf-8 encoding used 
     plaintext_bytes = bytes(value, "utf-8")
     
-    # converts ciphertext_bytes to hex string
+    # converts ciphertext_bytes to a hex string
     ciphertext_bytes = aes_ctr_encryptor.update(plaintext_bytes)
     ciphertext = ciphertext_bytes.hex()
     
@@ -56,28 +56,28 @@ class RegistrationHandler(BaseHandler, ABC):
             if not isinstance(display_name, str):
                 raise Exception()
             
-             # extract and validate additional profile data
-            # added to get full_name
+             # Extract and validate additional profile data
+            # Obtain full_name
             full_name = body.get('fullName')
             if not isinstance(full_name, str):
                 raise Exception()
             
-            # added to get address
+            # Obtain address
             address = body.get('address')
             if not isinstance(address, str):
                 raise Exception()
             
-            # added to get phone
+            # Obtain phone
             phone = body.get('phone')
             if not isinstance(phone, str):
                 raise Exception()
             
-            # added to get disabilities
+            # Obtain disabilities
             disabilities = body.get('disabilities')
             if not isinstance(disabilities, str):
                 raise Exception()
             
-            # added to get Date of Birth
+            # Obtain Date of Birth
             dob = body.get('dob')
             if not isinstance(dob, str):
                 raise Exception()
@@ -86,17 +86,17 @@ class RegistrationHandler(BaseHandler, ABC):
             self.send_error(400, message='You must provide an email address, password, display name, Full Name, address, Phone Number, Disabilitiy - if none just add none and a Date of Birth!')
             return
 
-        # verify inputs are not invalid/empty
+        # Verifies if inputs are valid or empty.
         if not email:
-            self.send_error(400, message='The email address is invalid!')
+            self.send_error(400, message='The email address is invalid! Please enter a valid email address')
             return
 
         if not password:
-            self.send_error(400, message='The password is invalid!')
+            self.send_error(400, message='The password is invalid! Please enter a valid password')
             return
 
         if not display_name:
-            self.send_error(400, message='The display name is invalid!')
+            self.send_error(400, message='The display name is invalid! Please enter a valid display name')
             return
 
         if not full_name:
@@ -108,7 +108,7 @@ class RegistrationHandler(BaseHandler, ABC):
             return
 
         if not phone:
-            self.send_error(400, message='Please enter a phone number!')
+            self.send_error(400, message='Please enter a valid phone number!')
             return
 
         if not disabilities:
@@ -116,7 +116,7 @@ class RegistrationHandler(BaseHandler, ABC):
             return
         
         if not dob:
-            self.send_error(400, message='Please enter a date of birth!')
+            self.send_error(400, message='Please enter a valid date of birth!')
             return
 
         # check if user already exists
@@ -125,12 +125,12 @@ class RegistrationHandler(BaseHandler, ABC):
         }, {})
 
         if user is not None:
-            self.send_error(409, message='A user with the given email address already exists!')
+            self.send_error(409, message='A user with this email address already exists!')
             return
 
         # function to hash user password
         def hash_password(password):
-            # generate a salt for the password hash
+            # Using the bcrypt module, create a salt for the password hash
             salt = bcrypt.gensalt()
             # hash the password using bcrypt with the salt
             hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
